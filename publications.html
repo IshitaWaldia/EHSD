@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHSD Research Centre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.png');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Sticky header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: darkred;
+            z-index: 100;
+            text-align: left;
+            height: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Logo container */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo1 img {
+            width: 200px;
+            height: 400px;
+            margin-top: 40px;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 150px;
+            margin-left: 10px;
+        }
+
+        /* Header navigation */
+        .header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .header ul li {
+            margin: 0;
+        }
+
+        .header ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .header ul li a .icon {
+            font-size: 18px;
+            margin-right: 8px;
+        }
+
+        .header ul li a:hover {
+            background-color: white;
+            color: darkred;
+            font-weight: bold;
+        }
+
+        /* Main content styling */
+        .main {
+            padding: 20px;
+            display: grid;
+            gap: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .basic {
+            background-image: url('empath.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 500px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-info {
+            padding: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            text-align: justify;
+        }
+
+        #featuredprojects {
+            text-align: center;
+        }
+
+        #featuredprojects h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #featuredprojects .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .info-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .info-sections div {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            text-align: justify;
+        }
+
+        .info-sections h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .info-sections p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* New section for publications and patents */
+        .publications-patents {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .publications-patents div {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .publications-patents h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: darkred;
+        }
+
+        .publications-patents ul {
+            list-style-type: disc;
+            padding-left: 40px;
+        }
+
+        .publications-patents li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* Slider Section */
+        .slider-section {
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .slider {
+            display: flex;
+            overflow: hidden;
+            height: 250px;
+            width: 100%;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        .slider img, .slider iframe {
+            border-radius: 15px;
+            width: 100%;
+            object-fit: cover;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+            animation: slide 15s infinite;
+        }
+
+        @keyframes slide {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-100%); }
+            50%, 70% { transform: translateX(-200%); }
+            75%, 95% { transform: translateX(-300%); }
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            height: 40px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .ehsd-image {
+            border-radius: 9px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <section class="header">
+        <div class="logo">
+            <img src="logoh.png" alt="EHSD Logo">
+            <img src="logo1.png" alt="Secondary Logo">
+        </div>
+        <ul>
+            <li><a href="#"><span class="icon"><i class="fas fa-home"></i></span>Home</a></li>
+            <li><a href="#"><span class="icon"><i class="fas fa-users"></i></span>Our Team</a></li>
+            <li><a href="#"><span class="icon"><i class="fas fa-project-diagram"></i></span>Projects</a></li>
+            <li><a href="#"><span class="icon"><i class="fas fa-newspaper"></i></span>News and Events</a></li>
+            <li><a href="#"><span class="icon"><i class="fas fa-book"></i></span>Publications</a></li>
+        </ul>
+    </section>
+
+    <!-- Publications and Patents Section -->
+    <div class="publications-patents">
+        <div>
+            <h3>Research Publications</h3>
+            <ul>
+                <li><b>Nanogenerators and Self-Powered Systems</b>, edited by Dr. Bhaskar Dudem, Dr. Vivekananthan Venkateswaran, and Prof. Arunkumar Chandrasekhar, Chapter name: Plant Base Renewable Energy to Power Nanoscale Sensors, pp. 1-16, Published by InTech publisher, Croatia, (ISBN: 978-953-51-3208-0, 2022).</li>
+                <li><b>Sansevieria Plant: Plant Base Cell (PBC) to power up IoT sensor nodes</b>, Ajay Kumar Singh, ADBU-Journal of Engineering Technology vol. 11, issue 1, May 2022. (ISSN: 2348-7305)</li>
+                <li><b>Renewable Energy from Living Plants to Power IoT Sensor for Remote Sensing</b>, P.L. Chong, A.K. Singh, F.Y. Kong, ADBU-Journal of Engineering Technology, vol. 11, issue 1, May 2022, (ISSN: 2348-7305)</li>
+                <li><b>Characterization of Aloe Barbadensis Miller leaves as a potential electrical energy source</b>, Peng Lean Chong, Ajay Kumar Singh, Swee Leong Kok , PLoS ONE 14(6): e0218758. https://doi.org/10.1371/journal.pone.0218758, 2019, (ISSN: 1932-6203), (SCOPUS & WoS)</li>
+                <li><b>Potential application of Aloe Vera-derived plant-based cell in powering wireless device</b>, Peng Lean Chong, Ajay Kumar Singh, Swee Leong Kok , PLoS ONE 14(12): : e0227153, December 2019, (ISSN: 1932-6203), (SCOPUS & WoS)</li>
+                <li><b>Renewable and Sustainable Electrical Energy harvested from Living Plants: An Experimental Study</b>, A. K. Singh and N. Kumar, 2021 International Conference on Electrical, Computer, Communications and Mechatronics Engineering (ICECCME), 2021, pp. 01-04, doi: 10.1109/ICECCME52200.2021.9590928.</li>
+                <li><b>A Compact Mathematical Modelling for Performance Evaluation of PV Module considering Single-Diode Model</b>, accepted in Indian Journal of Science and Technology, 2023.</li>
+                <li><b>Preliminary Experimental Study of Herbal Electrolyte for Future Green Battery</b>, Ganti, K. B., SINGH, A. K., & Joshi, J. (2024). Journal of The Electrochemical Society.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Patents Applied/Published</h3>
+            <ul>
+                <li><b>Application No.: 202311028354 A, INDIA</b> - Date of filing: 18/04/2023, Publication Date: 19/05/2023, “STABILIZING HARVESTED ELECTRICAL POTENTIAL FROM ALOE VERA GEL USING ARURVEDIC ELECTROLYTE”.</li>
+                <li><b>Application No.: 202311041835 A, INDIA</b> - Date of filing: 23/06/2023, Publication Date: 21/07/2023, “GREEN REGENERATIVE HERBAL BATTERY: NEXT GENERATION ELECTRICAL ENERGY STORAGE”.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Proposals Granted / Submitted</h3>
+            <ul>
+                <li><b>Under NUIG (2023-2025)</b>: Integration of Photovoltaic and Photosynthesis Techniques for Harvesting Electrical energy to power up IoT sensor nodes for Monitoring Environment and Agricultural conditions. (Approved)</li>
+                <li><b>Under CPRI, Bangalore (2023-2025)</b>: Green Herbal Battery: Next Generation Electrical Energy storage system for Sustainable Growth.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sliding Image and Video Section -->
+    <section class="header">
+        <div class="logo">
+            <img src="logoh.png" alt="EHSD Logo">
+            <img src="logo1.png" alt="Secondary Logo">
+        </div>
+        <ul>
+            <!-- Home Link (stays the same as it should link to the current index.html page) -->
+            <li><a href="index.html"><span class="icon"><i class="fas fa-home"></i></span>Home</a></li>
+        
+            <!-- Link to Our Team Page -->
+            <li><a href="Our Team.html"><span class="icon"><i class="fas fa-users"></i></span>Our Team</a></li>
+        
+            <!-- Link to Projects Page -->
+            <li><a href="Project.html"><span class="icon"><i class="fas fa-project-diagram"></i></span>Projects</a></li>
+        
+            <!-- Link to News and Events Page -->
+            <li><a href="news.html"><span class="icon"><i class="fas fa-newspaper"></i></span>News and Events</a></li>
+        
+            <!-- Link to Publications Page -->
+            <li><a href="publications.html"><span class="icon"><i class="fas fa-book"></i></span>Publications</a></li>
+        </ul>
+        
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <p>&copy; 2024 EHSD Research Centre. All rights reserved.</p>
+    </section>
+</body>
+</html>

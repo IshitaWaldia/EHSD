@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Our Team - EHSD Research Centre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.png');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Sticky Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: darkred;
+            z-index: 100;
+            padding: 10px 20px; /* Adjusted padding */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between; /* Logo and menu items will be spaced */
+            align-items: center;
+            height: 25px;
+        }
+
+        .logo img {
+            width: 100px; /* Reduced size of logo by 10% */
+            height: 150px;
+        }
+
+        .header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .header ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .header ul li a:hover {
+            background-color: white;
+            color: darkred;
+        }
+
+        /* Main Content Styling */
+        .main {
+            padding: 40px 20px;
+            display: grid;
+            gap: 40px;
+            flex-grow: 1;
+        }
+
+        /* Professor Ajay Kumar Singh Section */
+        .professor-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .professor-info {
+            width: 60%;
+        }
+
+        .professor-image img {
+            width: 200px;
+            height: 250px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Professor Content Box Styling (similar to Ajay Kumar Singh content) */
+        .content-box {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            height: 40px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Our Team Section Styling */
+        .team-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            justify-content: flex-end; /* Shift team members to the right */
+        }
+
+        .team-member {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .team-member h3 {
+            font-size: 20px;
+            color: darkred;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .team-member a {
+            text-decoration: none;
+            color: darkred;
+            font-weight: bold;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+
+        .more-info {
+            display: none;
+            margin-top: 15px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .team-member.active .more-info {
+            display: block;
+        }
+
+        /* Responsive Design Tweaks */
+        @media (max-width: 768px) {
+            .team-column {
+                grid-template-columns: 1fr;
+            }
+
+            .header ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header ul li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="logo">
+            <img src="logoh.png" alt="EHSD Logo">
+            <img src="logo1.png" alt="Secondary Logo">
+        </div>
+        <ul>
+            <!-- Home Link (stays the same as it should link to the current index.html page) -->
+            <li><a href="index.html"><span class="icon"><i class="fas fa-home"></i></span>Home</a></li>
+            
+            <!-- Link to Our Team Page -->
+            <li><a href="Our Team.html"><span class="icon"><i class="fas fa-users"></i></span>Our Team</a></li>
+            
+            <!-- Link to Projects Page -->
+            <li><a href="Project.html"><span class="icon"><i class="fas fa-project-diagram"></i></span>Projects</a></li>
+            
+            <!-- Link to News and Events Page -->
+            <li><a href="news.html"><span class="icon"><i class="fas fa-newspaper"></i></span>News and Events</a></li>
+            
+            <!-- Link to Publications Page -->
+            <li><a href="publications.html"><span class="icon"><i class="fas fa-book"></i></span>Publications</a></li>
+        </ul>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Professor Ajay Kumar Singh Section -->
+        <section class="professor-section">
+            <div class="professor-info">
+                <h2>Professor Ajay Kumar Singh</h2>
+                <p>
+                    Professor Ajay Kumar Singh is an expert in sustainable energy systems with over two decades of experience in the field. He has led various projects focusing on renewable energy integration and energy storage technologies. His dedication to green technology solutions has earned him recognition in academia and the research community.
+                </p>
+                <p>
+                    Professor Singh has contributed significantly to the development of energy harvesting systems, especially those that utilize biological processes to generate clean, renewable energy. His work continues to inspire the next generation of researchers in the field.
+                </p>
+            </div>
+            <div class="professor-image">
+                <img src="ajsingh.png" alt="Professor Ajay Kumar Singh">
+            </div>
+        </section>
+
+        <!-- EHSD Information Section (Boxed Content) -->
+        <section class="content-box">
+            <h3>Professor Ajay Kumar Singh - Extended Information</h3>
+            <p>
+                Professor Ajay Kumar Singh is a highly esteemed academic and researcher in the field of energy systems and sustainability. With a deep passion for advancing sustainable energy solutions, he has contributed extensively to the development of technologies in renewable energy, energy storage, and energy harvesting systems.
+            </p>
+            <p><strong>His research interests also extend to environmental chemistry and materials science, where he works towards creating more efficient and eco-friendly energy solutions.</strong></p>
+            <p><a href="javascript:void(0);" class="more-link" onclick="toggleMoreInfo()">More</a></p>
+        </section>
+
+        <!-- More Info Section (Hidden by default) -->
+        <section class="more-info" id="moreInfoSection">
+            <h3>Research Areas</h3>
+            <ul>
+                <li>Microelectronics Circuits, Simulation and Characterisation</li>
+                <li>Modelling of Nanoscale MOSFET, TFET and CNTFET Devices</li>
+                <li>Low-Power Digital VLSI and Memory Design</li>
+                <li>Nanotechnology</li>
+                <li>Renewable Energy (Energy Harvesting System/Power Management System)</li>
+                <li>IoT</li>
+            </ul>
+            <h3>Consulting Areas</h3>
+            <ul>
+                <li>Nanoelectronics</li>
+                <li>Chip Design</li>
+                <li>Renewable Energy Source Research</li>
+            </ul>
+        </section>
+
+        <!-- Our Team Section -->
+        <section class="team-column">
+            <!-- Team Member 1 -->
+            <div class="team-member" onclick="toggleInfo(this)">
+                <img src="saran.png" alt="Dr. S.N Sharan">
+                <h3>Dr. S.N Sharan</h3>
+                <p>Signal Processing, Robotics, and Energy Systems</p>
+                <a href="mailto:S.Sharan@niituniversity.in">S.Sharan@niituniversity.in</a>
+                <div class="more-info">
+                    <p>Dr. Sharan specializes in signal processing, robotics, and energy systems...</p>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member" onclick="toggleInfo(this)">
+                <img src="kumar.png" alt="PraveenKumar">
+                <h3>Praveen Kumar</h3>
+                <p>Mechatronics and Product designing</p>
+                <p></p>
+                <p></p>
+                <p></p>
+                
+                <br/>
+                <a href="mailto:Praveen@niituniversity.in.in">Praveen@niituniversity.in</a>
+                <div class="more-info">
+                    <p>Praveen Kumar is a specialist in Mechatronics and Product Designing, with experience in developing innovative solutions for the automation industry</p>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member" onclick="toggleInfo(this)">
+                <img src="joshi.png" alt="Dr. Jetendra Joshi">
+                <h3>Dr. Jetendra Joshi</h3>
+                <p>Renewable Energy, Vehicular Data Transmission, Embedded Technology</p>
+                <a href="mailto:jetendra.joshi@niituniversity.in">jetendra.joshi@niituniversity.in</a>
+                <div class="more-info">
+                    <p>Dr. Joshi works on renewable energy systems, vehicular data transmission...</p>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-member" onclick="toggleInfo(this)">
+                <img src="swaroop.png" alt="Swaroop Nambiar">
+                <h3>Swaroop Nambiar</h3>
+                <p>Web Development, UI/UX, AI</p>
+                <a href="mailto:swaroop.nambiar21@st.niituniversity.in">swaroop.nambiar21@st.niitun
+                    iversity.in</a>
+                <div class="more-info">
+                    <p>Swaroop specializes in web development, UI/UX design...</p>
+                </div>
+            </div>
+
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 EHSD Research Centre. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleInfo(element) {
+            element.classList.toggle('active');
+        }
+
+        function toggleMoreInfo() {
+            const moreInfoSection = document.getElementById("moreInfoSection");
+            moreInfoSection.style.display = moreInfoSection.style.display === "none" || moreInfoSection.style.display === "" ? "block" : "none";
+        }
+    </script>
+
+</body>
+</html>

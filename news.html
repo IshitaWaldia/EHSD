@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHSD Research Centre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.png');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Sticky header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: darkred;
+            z-index: 100;
+            text-align: left;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo img {
+            width: 100px;
+            height: 150px;
+            margin-top: 20px;
+        }
+
+        .header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .header ul li {
+            margin: 0;
+        }
+
+        .header ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header ul li a:hover {
+            background-color: white;
+            color: darkred;
+        }
+
+        /* About EHSD Section with Image on Right */
+        .about-ehsd {
+            background-color: #f4f4f9;
+            padding: 50px 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .about-ehsd .text {
+            width: 60%;
+            padding-right: 20px;
+        }
+
+        .about-ehsd h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .about-ehsd p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-ehsd img {
+            width: 40%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Empty Spacer Section */
+        .spacer {
+            height: 150px;
+            background-color: #f4f4f9;
+            margin: 50px 0;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 20px 30px;
+            display: grid;
+            gap: 30px;
+        }
+
+        .news-headlines {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .news-box {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .news-box img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .news-box h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .news-content {
+            padding: 15px;
+            background-color: #e0f7fa;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .news-box:hover .news-content {
+            display: block;
+        }
+
+        /* Image Slider */
+        .slider {
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+            margin: 40px auto;
+            overflow: hidden;
+        }
+
+        .slider-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="logo">
+            <img src="logoh.png" alt="EHSD Logo">
+            <img src="logo1.png" alt="Secondary Logo">
+        </div>
+        <ul>
+            <li><a href="index.html"><span class="icon"><i class="fas fa-home"></i></span>Home</a></li>
+            <li><a href="Our Team.html"><span class="icon"><i class="fas fa-users"></i></span>Our Team</a></li>
+            <li><a href="Project.html"><span class="icon"><i class="fas fa-project-diagram"></i></span>Projects</a></li>
+            <li><a href="news.html"><span class="icon"><i class="fas fa-newspaper"></i></span>News and Events</a></li>
+            <li><a href="publications.html"><span class="icon"><i class="fas fa-book"></i></span>Publications</a></li>
+        </ul>
+    </section>
+
+    <!-- About EHSD Section -->
+    <section class="about-ehsd">
+        <div class="text">
+            <h1>About EHSD at NIIT University</h1>
+            <p>The <strong>EHSD Research Centre</strong> at <strong>NIIT University</strong> focuses on <strong>renewable energy</strong>, <strong>sustainable technologies</strong>, and <strong>Internet of Things (IoT)</strong>. The centre works on innovative solutions to address global energy challenges and environmental sustainability. A major area of research includes <strong>herbal batteries</strong>, using plant-based materials to develop eco-friendly energy storage systems. Additionally, EHSD is advancing IoT applications for smart grids and energy-efficient buildings, promoting sustainability.</p>
+            <p>EHSD also provides <strong>Capstone Projects</strong>, where students design real-world solutions in energy-efficient systems and renewable energy storage, bridging the gap between academia and industry.</p>
+        </div>
+        <img src="about1.png" alt="EHSD Research Centre">
+    </section>
+
+    <!-- Spacer Section -->
+    <section class="spacer"></section>
+
+    <!-- Main Content -->
+    <section class="main">
+        <div class="news-headlines">
+            <!-- News 1 -->
+            <div class="news-box">
+                <img src="news1.png" alt="Event Image 1">
+                <div>
+                    <h3>Visited EV India 2023 on 14-10-2023 in Greater Noida</h3>
+                </div>
+                <div class="news-content">
+                    <h4>EV India 2023 - Greater Noida, 14th October</h4>
+                    <p>Our team from NIIT University participated in EV India 2023, held in Greater Noida on 14th October 2023...</p>
+                </div>
+            </div>
+            <!-- News 2 -->
+            <div class="news-box">
+                <img src="news2.png" alt="Event Image 2">
+                <div>
+                    <h3>Dr. Chetan Singh Solanki Visited Our Lab on 19-10-2023</h3>
+                </div>
+                <div class="news-content">
+                    <h4>Dr. Chetan Singh Solanki Lab Visit - 19th October 2023</h4>
+                    <p>Dr. Chetan Singh Solanki, an expert in solar energy, visited our lab on 19th October 2023...</p>
+                </div>
+            </div>
+            <!-- News 3 -->
+            <div class="news-box">
+                <img src="news3.png" alt="Event Image 3">
+                <div>
+                    <h3>Dr. Ajai Garg Lab Visit on 22-11-2023</h3>
+                </div>
+                <div class="news-content">
+                    <h4>Dr. Ajai Garg Visit - 22nd November 2023</h4>
+                    <p>Dr. Ajai Garg, an expert in green technologies from NIIT, visited our lab on 22nd November 2023...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Slider Section -->
+    <section class="slider">
+        <div class="slider-images">
+            <img src="news1.png" alt="Slider Image 1">
+            <img src="news2.png" alt="Slider Image 2">
+            <img src="news3.png" alt="Slider Image 3">
+            <img src="news4.png" alt="Slider Image 4">
+            <img src="news5.png" alt="Slider Image 5">
+            <img src="news6.png" alt="Slider Image 6">
+        </div>
+        <button class="slider-button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="slider-button next" onclick="moveSlide(1)">&#10095;</button>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <p>&copy; 2024 EHSD Research Centre. All rights reserved.</p>
+    </section>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider-images img');
+        const totalSlides = slides.length;
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            document.querySelector('.slider-images').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+    </script>
+
+</body>
+</html>

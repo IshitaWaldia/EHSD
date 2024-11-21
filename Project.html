@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHSD Research Centre - Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.png');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Sticky Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: darkred;
+            z-index: 100;
+            padding: 10px 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 25px;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 150px;
+        }
+
+        .header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .header ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .header ul li a:hover {
+            background-color: white;
+            color: darkred;
+        }
+
+        /* Main Content Styling */
+        .main {
+            padding: 40px 20px;
+            display: grid;
+            gap: 40px;
+            flex-grow: 1;
+        }
+
+        /* Our Projects Section */
+        .our-projects {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .our-projects .content {
+            flex: 1;
+        }
+
+        .our-projects h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .our-projects p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .our-projects img {
+            width: 50%;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Project Divisions */
+        .project-divisions {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .project-divisions div {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+            position: relative;
+        }
+
+        .project-divisions h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Table Styling for Read More */
+        .project-table {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-table th, .project-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .project-table th {
+            background-color: #f0f8ff;
+        }
+
+        .project-table td {
+            background-color: #f9f9f9;
+        }
+
+        /* Show table on hover */
+        .project-divisions div:hover .project-table {
+            display: table;
+        }
+
+        /* Image Styling */
+        .project-divisions img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Slider Section */
+        .slider-section {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            width: 500%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slider img {
+            width: 20%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Navigation Buttons */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .slider-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            height: 40px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <section class="header">
+        <div class="logo">
+            <img src="logoh.png" alt="EHSD Logo">
+            <img src="logo1.png" alt="Secondary Logo">
+        </div>
+        <ul>
+            <!-- Home Link (stays the same as it should link to the current index.html page) -->
+            <li><a href="index.html"><span class="icon"><i class="fas fa-home"></i></span>Home</a></li>
+            
+            <!-- Link to Our Team Page -->
+            <li><a href="Our Team.html"><span class="icon"><i class="fas fa-users"></i></span>Our Team</a></li>
+            
+            <!-- Link to Projects Page -->
+            <li><a href="Project.html"><span class="icon"><i class="fas fa-project-diagram"></i></span>Projects</a></li>
+            
+            <!-- Link to News and Events Page -->
+            <li><a href="news.html"><span class="icon"><i class="fas fa-newspaper"></i></span>News and Events</a></li>
+            
+            <!-- Link to Publications Page -->
+            <li><a href="publications.html"><span class="icon"><i class="fas fa-book"></i></span>Publications</a></li>
+        </ul>
+    </section>
+    <!-- Main Content -->
+    <section class="main">
+        <!-- Our Projects Section -->
+        <div class="our-projects">
+            <div class="content">
+                <h2>Our Projects</h2>
+                <p>This section provides a comprehensive overview of the various projects we engage in. It offers a glimpse into our ongoing initiatives, demonstrating our commitment to continuous exploration and innovation. Explore the projects below to gain insight into the diverse aspects of our work.</p>
+            </div>
+            <img src="ourprojects'.png" alt="Our Projects Image">
+        </div>
+
+        <!-- Project Divisions -->
+        <div class="project-divisions">
+            <!-- Research Projects -->
+            <div>
+                <h3>Research Projects</h3>
+                <p>Projects that involve in-depth investigations, rigorous inquiry and analysis as well as studies aimed at uncovering new insights, advancing knowledge, and addressing key challenges within our field.</p>
+                <img src="research.png" alt="Research Projects">
+                <!-- Research Projects Table -->
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>Project Titles</th>
+                            <th>Team Members</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Integration of Photovoltaic and Photosynthesis techniques for harvesting optimized electrical energy</td>
+                            <td>Dr. Ajay Singh</td>
+                        </tr>
+                        <tr>
+                            <td>Hybrid Renewable Energy System (HRES)</td>
+                            <td>Dr. Ajay Singh, Dr. Jetender Joshi</td>
+                        </tr>
+                        <tr>
+                            <td>Herbal Battery</td>
+                            <td>Dr. Ajay Singh, Dr. Jetender Joshi, Mr. Praveen Kumar, Mr. Sumeet Gangwar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- R&D Projects -->
+            <div>
+                <h3>R&D Projects</h3>
+                <p>Projects that exemplify the application of extensive research and development efforts. They underscore our commitment to exploring new frontiers and generating innovative solutions within our field.</p>
+                <img src="rnd.png" alt="R&D Projects">
+                <!-- R&D Projects Table -->
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>Project Titles</th>
+                            <th>Team Members</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Electrical Energy from Plants as Green Renewable Energy for Rural Development</td>
+                            <td>Dr. Ajay Singh, Dr. Jetender Joshi</td>
+                        </tr>
+                        <tr>
+                            <td>Building Renewable Energy Management</td>
+                            <td>Dr. Ajay Singh</td>
+                        </tr>
+                        <tr>
+                            <td>Singer & Song Recognition</td>
+                            <td>Dr. Jetender Joshi, Mr. Swaroop Nambiar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Capstone Projects -->
+            <div>
+                <h3>Capstone Projects</h3>
+                <p>Capstone projects represent the students' consolidation of their academic journey. These practical demonstrations reveal their ability to apply acquired knowledge to address real-world issues, reflecting their preparedness for the professional sphere.</p>
+                <img src="capstone.png" alt="Capstone Projects">
+                <!-- Capstone Projects Table -->
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>Project Titles</th>
+                            <th>Team Members</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Human Energy Harvesting System (HRES)</td>
+                            <td>Dr. Ajay Singh, Dr. Jetender Joshi, Mr. Sachin Bandi, Mr. Anshul Yadav</td>
+                        </tr>
+                        <tr>
+                            <td>Color Based Sorting System</td>
+                            <td>Dr. Jetender Joshi, Mr. Swaroop Nambiar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slider Section -->
+        <div class="slider-section">
+            <div class="slider" id="slider">
+                <img src="1.png" alt="Image 1">
+                <img src="2.png" alt="Image 2">
+                <img src="3.png" alt="Image 3">
+                <img src="rnd.png" alt="Image 4">
+                <img src="research.png" alt="Image 5">
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="slider-nav">
+                <button id="prev">&lt;</button>
+                <button id="next">&gt;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 EHSD Research Centre. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slider img");
+        const totalSlides = slides.length;
+
+        // Function to go to the next slide
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSliderPosition();
+        }
+
+        // Function to go to the previous slide
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSliderPosition();
+        }
+
+        // Function to update the slider position
+        function updateSliderPosition() {
+            const slider = document.getElementById('slider');
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Set the interval for automatic slide transition
+        setInterval(nextSlide, 3000);
+
+        // Add event listeners for the navigation buttons
+        document.getElementById("next").addEventListener("click", nextSlide);
+        document.getElementById("prev").addEventListener("click", prevSlide);
+    </script>
+</body>
+</html>
